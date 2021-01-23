@@ -18,21 +18,21 @@ end
 def decide_num(chosen_plan)
   puts <<~TEXT
          #{chosen_plan[:place]}旅行ですね。
-  何名で予約されますか？
+         何名で予約されますか？
        TEXT
   while true
     print "人数を入力 > "
-    decided_num = gets.to_i
-    break if decided_num >= 1
+    num_of_people = gets.to_i
+    break if num_of_people >= 1
     puts "1以上を入力して下さい。"
   end
-  decided_num
+  num_of_people
 end
 
-def calucurate_price(decided_num, chosen_plan)
-  puts "#{decided_num}名ですね。"
-  calcurated_price = decided_num * chosen_plan[:price]
-  if decided_num >= 5
+def calucurate_price(num_of_people, chosen_plan)
+  puts "#{num_of_people}名ですね。"
+  calcurated_price = num_of_people * chosen_plan[:price]
+  if num_of_people >= 5
     calcurated_price *= 0.9
     puts "5名以上ですので10%割引となります"
   end
